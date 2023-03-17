@@ -31,4 +31,28 @@ public class EjerciciosClase {
 			}
 		}
 	}
+	
+	public static int GetCantidadDigitos(int num) {
+		if(num==0)
+			num++;
+		return (int)Math.floor(Math.log10(Math.abs(num))+1);
+	}
+	
+	public static long SumarDigitosFor(double num) {
+		String strNum = Double.toString(num);
+		long res = 0;
+		for(int i =0 ; i<strNum.length(); i++) {
+			char caracter = strNum.charAt(i);
+			if((int)caracter >= 48 && (int)caracter <=57) {		
+				num = Math.abs(Character.getNumericValue(caracter));
+				res += num;
+			}
+		}
+		return res;
+	}
+	public static int SumarDigitosRec(int num) {
+		if(num == 0)
+			return num;
+		return num%10 + SumarDigitosRec(num/10);
+	}
 }
