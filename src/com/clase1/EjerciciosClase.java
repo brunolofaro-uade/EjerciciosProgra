@@ -55,4 +55,12 @@ public class EjerciciosClase {
 			return num;
 		return num%10 + SumarDigitosRec(num/10);
 	}
+	
+	public static void ImprimirDivisores(int numero, int divisor) {
+		if(divisor > numero)
+			return;
+		ImprimirDivisores(numero,divisor+1);
+		if(numero%divisor==0)
+			System.out.println(divisor);
+	}
 }
