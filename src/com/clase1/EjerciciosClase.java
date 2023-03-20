@@ -56,10 +56,10 @@ public class EjerciciosClase {
 		return num%10 + SumarDigitosRec(num/10);
 	}
 	
-	public static void ImprimirDivisores(int numero, int divisor) {
-		if(divisor > numero)
+	public static void ImprimirDivisoresRec(int numero, int divisor) {
+		if(divisor > numero/2)
 			return;
-		ImprimirDivisores(numero,divisor+1);
+		ImprimirDivisoresRec(numero,divisor+1);
 		if(numero%divisor==0)
 			System.out.println(divisor);
 	}
