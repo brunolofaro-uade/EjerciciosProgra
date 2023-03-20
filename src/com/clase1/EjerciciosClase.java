@@ -63,4 +63,24 @@ public class EjerciciosClase {
 		if(numero%divisor==0)
 			System.out.println(divisor);
 	}
+	
+	public static Boolean EsPerfecto(int num) {
+		int acum=0;
+		for(int i=1;i<=num/2;i++) {
+			if(num%i==0)
+				acum+=i;
+		}
+		return num == acum;
+	}
+
+	public static Boolean EsPerfectoRec(int num, int divisor, int acum) {
+		if(divisor > num/2) {
+			if(num==acum)
+				return true;
+			return false;
+		}
+		if(num%divisor==0)
+			acum+=divisor;
+		return EsPerfectoRec(num,divisor+1,acum);
+	}
 }
