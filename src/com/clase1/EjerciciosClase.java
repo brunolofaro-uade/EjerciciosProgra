@@ -83,4 +83,14 @@ public class EjerciciosClase {
 			acum+=divisor;
 		return EsPerfectoRec(num,divisor+1,acum);
 	}
+	
+	public static double ProductoDeWallis(int iteraciones) {
+		double acum=1;
+		for(int i=1; i<=iteraciones; i++) {
+			double factor1 = (double)(2*i)/(2*i-1);
+			double factor2 = (double)(2*i)/(2*i+1);
+			acum*=factor1*factor2;
+		}
+		return 2*acum;
+	}
 }
