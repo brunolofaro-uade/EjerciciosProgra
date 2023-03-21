@@ -26,4 +26,21 @@ public class PilaUtils {
 		
 		return encontrado==1;
 	}
+	
+	public static Boolean CantidadElementosEsPar(Pila pila) {
+		Pila pilaAux1 = new Pila();
+		Pila pilaAux2 = new Pila();
+		try {
+			do {
+				for(int i=0;i<2;i++) {
+					pila.Desapilar();
+					pila.Desapilar();
+				}
+			}while(!pila.EsVacia());			
+		}
+		catch(Exception ex) {
+			return false;
+		}
+		return true;
+	}
 }

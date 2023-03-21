@@ -17,9 +17,9 @@ public class Pila implements IPila {
 	}
 
 	@Override
-	public Boolean Desapilar() {
+	public Boolean Desapilar() throws Exception{
 		if(contador==0)
-			return false;
+			throw new Exception("Pila Vacia.");
 		contador--;
 		return true;
 	}
