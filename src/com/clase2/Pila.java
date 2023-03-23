@@ -31,9 +31,9 @@ public class Pila implements IPila {
 	}
 
 	@Override
-	public int ObtenerTope() {
-		//if(this.EsVacia()==false)
-			//throw new Exception();
+	public int ObtenerTope() throws Exception {
+		if(this.EsVacia()==true)
+			throw new Exception();
 		return this.array[contador-1];
 	}
 }

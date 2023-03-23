@@ -59,11 +59,51 @@ public class PilaUtils {
 			pilaOrigen.Desapilar();
 		}
 	}
-	//public static Boolean EsCapicua() {
-	//	
-	//}
-	public static int compararPilas(Pila pila1, Pila pila2) throws Exception {
+	public static Boolean EsCapicua(Pila pila) throws Exception {
+		Boolean retorno = false;
+		Pila pilaAux = new Pila();
+		int aux = pila.ObtenerTope();
+		while(!pila.EsVacia()) {
+			aux = pila.ObtenerTope();
+			pila.Desapilar();
+			if(!pilaAux.EsVacia() && !pila.EsVacia() && pila.ObtenerTope() == pilaAux.ObtenerTope()) {
+				if(compararPilas(pila, pilaAux)) {
+					retorno = true;
+					break;
+				}
+				else {
+					pilaAux.Apilar(aux);
+				}
+			}
+			else {
+				pilaAux.Apilar(aux);
+			}
+		}
+		pila.Apilar(aux);
+		agregarPila(pilaAux,pila);
+		return retorno;
+	}
+	public static int compararTamanoPilas(Pila pila1, Pila pila2) throws Exception {
 		int retorno = 0;
+		Pila pila1Aux = new Pila();
+		Pila pila2Aux = new Pila();
+		
+		while(!pila1.EsVacia() && !pila2.EsVacia()) {
+			pila1.Desapilar();
+			pila2.Desapilar();
+		}
+		if(pila1.EsVacia()) {
+			retorno --;
+			copiarPila(pila1Aux,pila1);
+		}
+		if(pila2.EsVacia()) {
+			retorno ++;
+			copiarPila(pila2Aux,pila2);
+		}
+		return retorno;
+	}
+	//del mismo tamano
+	public static Boolean compararPilas(Pila pila1, Pila pila2) throws Exception {
 		Pila pila1Aux = new Pila();
 		Pila pila2Aux = new Pila();
 		while(!pila1.EsVacia() && !pila2.EsVacia() && pila1.ObtenerTope() == pila2.ObtenerTope()) {
@@ -72,16 +112,13 @@ public class PilaUtils {
 			pila1.Desapilar();
 			pila2.Desapilar();
 		}
-		while(!pila1.EsVacia() && !pila2.EsVacia()) {
-			pila1.Desapilar();
-			pila2.Desapilar();
-		}
 		if(pila1.EsVacia()) {
-			retorno --;
+			copiarPila(pila1Aux, pila1);
+			copiarPila(pila2Aux, pila2);
+			return true;
 		}
-		if(pila2.EsVacia()) {
-			retorno ++;
-		}
-		return retorno;
+		agregarPila(pila1Aux,pila1);
+		agregarPila(pila2Aux,pila2);
+		return false;
 	}
 }
