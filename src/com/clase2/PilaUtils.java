@@ -71,13 +71,8 @@ public class PilaUtils {
 					retorno = true;
 					break;
 				}
-				else {
-					pilaAux.Apilar(aux);
-				}
 			}
-			else {
 				pilaAux.Apilar(aux);
-			}
 		}
 		pila.Apilar(aux);
 		agregarPila(pilaAux,pila);
