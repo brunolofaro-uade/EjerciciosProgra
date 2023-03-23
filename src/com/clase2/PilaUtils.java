@@ -43,4 +43,23 @@ public class PilaUtils {
 		}
 		return true;
 	}
+	
+	public static void copiarPila(Pila pilaOrigen, Pila pilaDestino) throws Exception {
+		if(!pilaDestino.EsVacia()) {
+			throw new Exception("La pilas destino debe estar vacia");
+		}
+		while(!pilaOrigen.EsVacia()) {
+			pilaDestino.Apilar(pilaOrigen.ObtenerTope());
+			pilaOrigen.Desapilar();
+		}
+	}
+	public static void agregarPila(Pila pilaOrigen, Pila pilaDestino) throws Exception {
+		while(!pilaOrigen.EsVacia()) {
+			pilaDestino.Apilar(pilaOrigen.ObtenerTope());
+			pilaOrigen.Desapilar();
+		}
+	}
+	//public static Boolean EsCapicua() {
+	//	
+	//}
 }
