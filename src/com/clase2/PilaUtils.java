@@ -1,7 +1,7 @@
 package com.clase2;
 
 public class PilaUtils {
-	public static Boolean EliminarElemento(Pila pila, int num) {
+	public static Boolean EliminarElemento(Pila pila, int num) throws Exception {
 		Pila pilaAux = new Pila();
 		
 		if(pila.EsVacia())
@@ -62,4 +62,26 @@ public class PilaUtils {
 	//public static Boolean EsCapicua() {
 	//	
 	//}
+	public static int compararPilas(Pila pila1, Pila pila2) throws Exception {
+		int retorno = 0;
+		Pila pila1Aux = new Pila();
+		Pila pila2Aux = new Pila();
+		while(!pila1.EsVacia() && !pila2.EsVacia() && pila1.ObtenerTope() == pila2.ObtenerTope()) {
+			pila1Aux.Apilar(pila1.ObtenerTope());
+			pila2Aux.Apilar(pila2.ObtenerTope());
+			pila1.Desapilar();
+			pila2.Desapilar();
+		}
+		while(!pila1.EsVacia() && !pila2.EsVacia()) {
+			pila1.Desapilar();
+			pila2.Desapilar();
+		}
+		if(pila1.EsVacia()) {
+			retorno --;
+		}
+		if(pila2.EsVacia()) {
+			retorno ++;
+		}
+		return retorno;
+	}
 }
