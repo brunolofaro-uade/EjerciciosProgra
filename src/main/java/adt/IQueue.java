@@ -1,4 +1,4 @@
-package org.example.adt;
+package adt;
 
 /**
  * Precondicion: para usar cualquier de estos metodos la estructura debe estar inicializada.

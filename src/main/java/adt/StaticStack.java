@@ -1,4 +1,4 @@
-package org.example.adt;
+package adt;
 
 public class StaticStack implements IStack {
 

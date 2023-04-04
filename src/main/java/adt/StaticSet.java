@@ -1,4 +1,4 @@
-package org.example.adt;
+package adt;
 
 import java.util.Random;
 

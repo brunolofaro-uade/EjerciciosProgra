@@ -1,4 +1,4 @@
-package org.example.adt;
+package adt;
 
 public class DynamicStack implements IStack {
 
@@ -12,7 +12,7 @@ public class DynamicStack implements IStack {
     @Override
     public void remove() {
         if(this.first == null) {
-            System.out.println("No se puede desapilar una pila vacia");
+            System.out.println("No se puede desapilar una pila vacía");
             return;
         }
         this.first = this.first.getNext();
@@ -26,7 +26,7 @@ public class DynamicStack implements IStack {
     @Override
     public int getTop() {
         if(this.first == null) {
-            System.out.println("No se puede obtener el tope una pila vacia");
+            System.out.println("No se puede obtener el tope una pila vacía");
             return -1;
         }
         return this.first.getValue();

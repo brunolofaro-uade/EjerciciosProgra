@@ -1,21 +1,21 @@
 package adt;
 
-public class DynamicQueue implements IQueue {
+public class GenericDynamicQueue<T> implements IGenericQueue<T> {
 
-    private Node first;
+    private GenericNode<T> first;
 
     @Override
-    public void add(int a) {
-        Node node = new Node(a, null);
+    public void add(T a) {
+        GenericNode genericNode = new GenericNode(a, null);
         if(this.first == null) {
-            this.first = node;
+            this.first = genericNode;
             return;
         }
-        Node candidate = this.first;
+        GenericNode candidate = this.first;
         while(candidate.getNext() != null) {
             candidate = candidate.getNext();
         }
-        candidate.setNext(node);
+        candidate.setNext(genericNode);
     }
 
     @Override
@@ -33,10 +33,10 @@ public class DynamicQueue implements IQueue {
     }
 
     @Override
-    public int getFirst() {
+    public T getFirst() {
         if(this.first == null) {
             System.out.println("No se puede obtener el primero una cola vacia");
-            return -1;
+            throw new RuntimeException();
         }
         return this.first.getValue();
     }
